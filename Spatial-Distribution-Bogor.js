@@ -2,7 +2,7 @@
 // GEE APP: SPATIAL DISTRIBUTION ANALYSIS BOGOR (2004, 2014, 2024)
 // ======================================================================
 
-var ROI = ee.FeatureCollection("projects/ee-rdhgstwnn18/assets/Batas_Administrasi_KotaBogor");
+var ROI = ee.FeatureCollection("projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Batas_Kota_Bogor");
 
 // ======================================================================
 // MULTILANGUAGE DICTIONARY (TXT) & DATA DICTIONARY
@@ -93,37 +93,37 @@ var TXT = {
 var DATA_DICT = {
   'Penggunaan Lahan': {
     en_key: 'Land Use',
-    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Lu_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Lu_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Lu_Kota_Bogor_2024" },
+    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Lu_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Lu_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Lu_Kota_Bogor_2024" },
     xProp: 'Nama_kelas', min: 0, max: 6, palette: ['0000FF', 'FF0000', 'ADFF2F', 'FFFF00', '006400', 'FFA500', '800080'],
     classes: { ID: ['Badan Air', 'Lahan Terbangun', 'Kebun', 'Sawah', 'Hutan', 'Lahan Terbuka', 'Semak Belukar'], EN: ['Water Body', 'Built-up Area', 'Plantation', 'Paddy Field', 'Forest', 'Open Land', 'Shrub'] }
   },
   'Land Surface Temperature (LST)': {
     en_key: 'Land Surface Temperature (LST)',
-    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Lst_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Lst_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Lst_Kota_Bogor_2024" },
+    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Lst_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Lst_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Lst_Kota_Bogor_2024" },
     xProp: 'Suhu_°C', min: 1, max: 5, palette: ['008000', '90EE90', 'FFFF00', 'FFA500', 'FF8C00'],
     classes: { ID: ['< 24°C', '24°C - 26°C', '26°C - 28°C', '28°C - 30°C', '> 30°C'], EN: ['< 24°C', '24°C - 26°C', '26°C - 28°C', '28°C - 30°C', '> 30°C'] }
   },
   'Suhu Udara (Ta)': {
     en_key: 'Air Temperature (Ta)',
-    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Ta_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Ta_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Ta_Kota_Bogor_2024" },
+    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Ta_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Ta_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Ta_Kota_Bogor_2024" },
     xProp: 'Suhu_°C', min: 1, max: 6, palette: ['008000', '90EE90', 'FFFF00', 'FFA500', 'FF8C00', 'FF0000'],
     classes: { ID: ['< 22°C', '22°C - 24°C', '24°C - 26°C', '26°C - 28°C', '28°C - 30°C', '> 30°C'], EN: ['< 22°C', '22°C - 24°C', '24°C - 26°C', '26°C - 28°C', '28°C - 30°C', '> 30°C'] }
   },
   'Kelembapan Relatif (RH)': {
     en_key: 'Relative Humidity (RH)',
-    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Rh_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Rh_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Rh_Kota_Bogor_2024" },
+    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Rh_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Rh_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Rh_Kota_Bogor_2024" },
     xProp: 'Persen', min: 1, max: 5, palette: ['A52A2A', 'FFFFFF', '90EE90', '008000', '006400'],
     classes: { ID: ['< 20%', '20% - 40%', '40% - 60%', '74% - 80%', '> 80%'], EN: ['< 20%', '20% - 40%', '40% - 60%', '74% - 80%', '> 80%'] }
   },
   'Temperature Humidity Index (THI)': {
     en_key: 'Temperature Humidity Index (THI)',
-    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Thi_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Thi_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Thi_Kota_Bogor_2024" },
+    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Thi_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Thi_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Thi_Kota_Bogor_2024" },
     xProp: 'THI', min: 1, max: 4, palette: ['030FFC', '03FC0B', 'FCF003', 'FC0303'],
     classes: { ID: ['Tdk Nyaman (Sejuk)', 'Nyaman', 'Cukup Nyaman', 'Tdk Nyaman (Panas)'], EN: ['Uncomfortable (Cold)', 'Comfortable', 'Moderately Comfortable', 'Uncomfortable (Hot)'] }
   },
   'Normalized Difference Vegetation Index (NDVI)': {
     en_key: 'Normalized Difference Veg. Index (NDVI)',
-    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Ndvi_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Ndvi_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Ndvi_Kota_Bogor_2024" },
+    assets: { '2004': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Ndvi_Kota_Bogor_2004", '2014': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Ndvi_Kota_Bogor_2014", '2024': "projects/ee-rdhgstwnn18/assets/Spatial-Distribution-Bogor/Ndvi_Kota_Bogor_2024" },
     xProp: 'NDVI', min: 1, max: 3, palette: ['FFFFFF', '90EE90', '008000'],
     classes: { ID: ['Vegetasi Jarang', 'Vegetasi Sedang', 'Vegetasi Lebat'], EN: ['Sparse Vegetation', 'Moderate Vegetation', 'Dense Vegetation'] }
   }
